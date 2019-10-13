@@ -43,20 +43,26 @@ end
 
 def print(students)
   index = 0
+  puts "Enter month:"
+  month = gets.chomp
   puts "Name".center(10) +
   "Age".center(10) +
   "Hobbies".center(35) +
   "Cohort".center(25)
-  puts "------------------------------------------------------------------------"
-  while index < students.length do
-    if students[index][:name][0] == "H" && students[index][:name].length < 12
-      puts "#{index + 1}. #{students[index][:name]}" +
-      "(#{students[index][:age]})".center(10) +
-      "(Hobbies:#{students[index][:hobbies]})".center(35) +
-      "(#{students[index][:cohort]} cohort)".center(25)
+  puts "---------------------------------------------------------------------------"
+  cohorts = students.map {|student| student[:cohort]}.uniq
+  cohorts.each do |cohort_month|
+    if cohort_month == month
+      matched = students.select { |student| student[:cohort] == month }
+      matched.each do |student| puts "#{index += 1}." +
+        "#{student[:name]}".center(10) +
+        "(#{student[:age]})".center(10) +
+        "(Hobbies:#{student[:hobbies]})".center(35) +
+        "(#{student[:cohort]} cohort)".center(25)
+      end
     end
-  index += 1
   end
+  index += 1
 end
 
 def print_footer(students)
