@@ -3,7 +3,7 @@ def input_students
   puts "To finish, just hit return twice"
   students = []
   default_cohort = "November"
-  name = gets.chomp
+  name = gets.gsub("\n", " ")
   while !name.empty? do
     hobbies = []
     puts "Enter age"
