@@ -32,9 +32,9 @@ def print(students)
   while index < students.length do
     if students[index][:name][0] == "H" && students[index][:name].length < 12
       puts "#{index + 1}. #{students[index][:name]}" +
-      "(#{students[index][:age]})" +
-      "(Hobbies:#{students[index][:hobbies]})" +
-      "(#{students[index][:cohort]} cohort)"
+      "(#{students[index][:age]})".center(10) +
+      "(Hobbies:#{students[index][:hobbies]})".center(35) +
+      "(#{students[index][:cohort]} cohort)".center(25)
     end
   index += 1
   end
